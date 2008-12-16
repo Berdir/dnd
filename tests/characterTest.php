@@ -49,6 +49,7 @@ date_default_timezone_set('Europe/Zurich');
 /**
  * Description for include
  */
+
 include '../init.php';
 Language::setLanguage('German');
 Logger::addListener('StdOut');
