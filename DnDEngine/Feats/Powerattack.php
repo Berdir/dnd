@@ -39,12 +39,12 @@
  * @see       References to other sections (if any)...
  */
 
-namespace DnDEngine::Feats;
-use DnDEngine::Constants;
-use DnDEngine::Language as L;
-use DnDEngine::interfaces::iFeat;
-use DnDEngine::Character as C;
-use DnDEngine::Logger;
+namespace DnDEngine\Feats;
+use DnDEngine\Constants;
+use DnDEngine\Language as L;
+use DnDEngine\interfaces\iFeat;
+use DnDEngine\Character as C;
+use DnDEngine\Logger;
 /**
  * Short description for class
  *
@@ -82,7 +82,7 @@ class Powerattack extends Base implements iFeat
      */
     public function arePrerequisitesMet(C $char)
     {
-        if ($char->getAbility(Constants::Abilities::STR) > 15) {
+        if ($char->getAbility(Constants\Abilities::STR) > 15) {
             Logger::debug('Character %s mets the prerequisites of Power Attack', array(
                 $char->getName()
             ));
@@ -135,7 +135,7 @@ class Powerattack extends Base implements iFeat
         } else {
             $dmgBonus = 6;
         }
-        if ($char->getEquipment(Constants::Common::EQUIPMENT_MAINHAND)->getType() == Constants::Common::WEAPON_TWOHAND) {
+        if ($char->getEquipment(Constants\Common::EQUIPMENT_MAINHAND)->getType() == Constants\Common::WEAPON_TWOHAND) {
             $dmgBonus*= 1.5;
         }
         return $dmgBonus;

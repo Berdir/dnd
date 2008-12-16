@@ -40,7 +40,7 @@
  */
 
 namespace DnDEngine;
-use DnDEngine::Constants;
+use DnDEngine\Constants;
 /**
  * Short description for class
  *
@@ -89,12 +89,12 @@ class GeneratorHelper_StandardArray
             10
         ));
         $allAbilities = array_flip(array(
-            Constants::Abilities::STR,
-            Constants::Abilities::CON,
-            Constants::Abilities::DEX,
-            Constants::Abilities::WIS,
-            Constants::Abilities::INT,
-            Constants::Abilities::CHA
+            Constants\Abilities::STR,
+            Constants\Abilities::CON,
+            Constants\Abilities::DEX,
+            Constants\Abilities::WIS,
+            Constants\Abilities::INT,
+            Constants\Abilities::CHA
         ));
         foreach($abilities as $ability => $value) {
             if (!isset($allValues[$value])) {

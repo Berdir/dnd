@@ -40,7 +40,7 @@
  */
 
 namespace DnDEngine;
-use DnDEngine::Constants;
+use DnDEngine\Constants;
 /**
  * Short description for class
  *
@@ -68,7 +68,7 @@ class Feat_ActionSurge extends Feat implements Interface_Feat
      */
     public function arePrerequisitesMet(Character $char)
     {
-        if ($char->getRace()->getName() == Constants::Common::RACE_HUMAN) {
+        if ($char->getRace()->getName() == Constants\Common::RACE_HUMAN) {
             Logger::debug('Character %s mets the prerequisites of Action Surge', array(
                 $char->getName()
             ));

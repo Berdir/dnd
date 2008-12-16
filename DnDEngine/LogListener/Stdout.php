@@ -40,7 +40,7 @@
  */
 
 namespace DnDEngine;
-use DnDEngine::interfaces::iLogListener;
+use DnDEngine\interfaces\iLogListener;
 /**
  * Short description for class
  *

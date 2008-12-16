@@ -39,10 +39,10 @@
  * @see       References to other sections (if any)...
  */
 
-namespace DnDEngine::Classes;
-use DnDEngine::Constants;
-use DnDEngine::interfaces::iClass;
-use DnDEngine::Character;
+namespace DnDEngine\Classes;
+use DnDEngine\Constants;
+use DnDEngine\interfaces\iClass;
+use DnDEngine\Character;
 /**
  * PHP Template.
  */
@@ -66,11 +66,11 @@ class Fighter extends Base implements iClass
      * @access protected
      */
     protected $skills = array(
-        Constants::Skills::ATHLETHICS => Constants::Abilities::STR,
-        Constants::Skills::ENDURANCE => Constants::Abilities::CON,
-        Constants::Skills::HEAL => Constants::Abilities::WIS,
-        Constants::Skills::INTIMATE => Constants::Abilities::CHA,
-        Constants::Skills::STREETWISE => Constants::Abilities::CHA
+        Constants\Skills::ATHLETHICS => Constants\Abilities::STR,
+        Constants\Skills::ENDURANCE => Constants\Abilities::CON,
+        Constants\Skills::HEAL => Constants\Abilities::WIS,
+        Constants\Skills::INTIMATE => Constants\Abilities::CHA,
+        Constants\Skills::STREETWISE => Constants\Abilities::CHA
     );
     /**
      * Description for protected
@@ -78,17 +78,17 @@ class Fighter extends Base implements iClass
      * @access protected
      */
     protected $profs = array(
-        Constants::Common::ARMOR_CLOTH,
-        Constants::Common::ARMOR_CHAINMAIL,
-        Constants::Common::ARMOR_HIDE,
-        Constants::Common::ARMOR_LEATHER,
-        Constants::Common::ARMOR_SCALE,
-        Constants::Common::SHIELD_HEAVY,
-        Constants::Common::SHIELD_LIGHT,
-        Constants::Common::WEAPON_MELEE_SIMPLE,
-        Constants::Common::WEAPON_MELEE_MIL,
-        Constants::Common::WEAPON_RANGED_MIL,
-        Constants::Common::WEAPON_RANGED_SIMPLE
+        Constants\Common::ARMOR_CLOTH,
+        Constants\Common::ARMOR_CHAINMAIL,
+        Constants\Common::ARMOR_HIDE,
+        Constants\Common::ARMOR_LEATHER,
+        Constants\Common::ARMOR_SCALE,
+        Constants\Common::SHIELD_HEAVY,
+        Constants\Common::SHIELD_LIGHT,
+        Constants\Common::WEAPON_MELEE_SIMPLE,
+        Constants\Common::WEAPON_MELEE_MIL,
+        Constants\Common::WEAPON_RANGED_MIL,
+        Constants\Common::WEAPON_RANGED_SIMPLE
     );
     /**
      * Short description for function
@@ -101,7 +101,7 @@ class Fighter extends Base implements iClass
      */
     public function getBaseHitPoints(Character $char)
     {
-        return 15 + $char->getAbility(Constants::Abilities::CON);
+        return 15 + $char->getAbility(Constants\Abilities::CON);
     }
     /**
      * Short description for function
@@ -127,7 +127,7 @@ class Fighter extends Base implements iClass
      */
     public function getHealingSurgesPerDay(Character $char)
     {
-        return 9 + $char->getAbility(Constants::Abilities::CON);
+        return 9 + $char->getAbility(Constants\Abilities::CON);
     }
 }
 ?>

@@ -39,10 +39,10 @@
  * @see       References to other sections (if any)...
  */
 namespace DnDEngine;
-use DnDEngine::Race;
-use DnDEngine::Classes;
-use DnDEngine::Constants;
-use DnDEngine::Feats;
+use DnDEngine\Race;
+use DnDEngine\Classes;
+use DnDEngine\Constants;
+use DnDEngine\Feats;
 
 date_default_timezone_set('Europe/Zurich');
 
@@ -54,28 +54,28 @@ Language::setLanguage('German');
 Logger::addListener('StdOut');
 Game::setName('Test');
 $berdir = Game::addCharacter('Berdir');
-$berdir->setRace(new Race::Dwarf());
-$fighter = $berdir->setClass(new Classes::Fighter());
+$berdir->setRace(new Race\Dwarf());
+$fighter = $berdir->setClass(new Classes\Fighter());
 $fighter->chooseTrainedSkill(array(
-    Constants::Skills::ATHLETHICS,
-    Constants::Skills::ENDURANCE,
-    Constants::Skills::STREETWISE
+    Constants\Skills::ATHLETHICS,
+    Constants\Skills::ENDURANCE,
+    Constants\Skills::STREETWISE
 ));
 $standardArray = AbilityGenerator::factory('StandardArray');
 $standardArray->assignAbilities(array(
-    Constants::Abilities::STR => 16,
-    Constants::Abilities::CON => 14,
-    Constants::Abilities::DEX => 13,
-    Constants::Abilities::WIS => 12,
-    Constants::Abilities::CHA => 11,
-    Constants::Abilities::INT => 10
+    Constants\Abilities::STR => 16,
+    Constants\Abilities::CON => 14,
+    Constants\Abilities::DEX => 13,
+    Constants\Abilities::WIS => 12,
+    Constants\Abilities::CHA => 11,
+    Constants\Abilities::INT => 10
 ));
 $berdir->setAbilityScore($standardArray);
 $berdir->build();
 $level = new Level($berdir);
-$level->chooseFeat(new Feats::Powerattack());
+$level->chooseFeat(new Feats\Powerattack());
 $level->finish();
-$berdir->activateFeat(Feats::Powerattack::Name);
-$berdir->deactivateFeat(Feats::Powerattack::Name);
+$berdir->activateFeat(Feats\Powerattack::Name);
+$berdir->deactivateFeat(Feats\Powerattack::Name);
 Logger::debug($berdir->dump());
 ?>

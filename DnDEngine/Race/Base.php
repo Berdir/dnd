@@ -39,8 +39,8 @@
  * @see       References to other sections (if any)...
  */
 
-namespace DnDEngine::Race;
-use DnDEngine::Language as L;
+namespace DnDEngine\Race;
+use DnDEngine\Language as L;
 /**
  * PHP Template.
  */

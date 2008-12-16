@@ -1,1 +1,1 @@
-phpdoc -t /home/u80759076/Projekte/Bework/code/www/api -f /usr/share/php/Log/observer.php,/usr/share/php/Translation/Decorator.php,/usr/share/php/Auth.php,/usr/share/php/DB/DataObject.php,/usr/share/php/Auth.php,/usr/share/php/PEAR.php,/home/u80759076/Projekte/Bework/code/Bework.php -d /home/u80759076/Projekte/Bework/code/Bework, -o HTML:frames:phpedit -ti "Bework - API Dokumentation" -dn Bework -dc Bework -pp on -s on
+phpdoc -t /home/sascha/Projekte/dnd/api -d /home/sascha/Projekte/dnd/DnDEngine, -o HTML:Smarty:PHP -ti "DnD - API Documentation" -dn DnD -dc DnD -pp on -s on

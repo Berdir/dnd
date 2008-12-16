@@ -40,7 +40,7 @@
  */
 
 namespace DnDEngine;
-use DnDEngine::interfaces::iLogListener;
+use DnDEngine\interfaces\iLogListener;
 /**
  * Short description for class
  *
@@ -290,7 +290,7 @@ class Logger
      */
     public static function factory($name)
     {
-        $classname = __NAMESPACE__ . '::LogListener_' . ucfirst(strtolower($name));
+        $classname = __NAMESPACE__ . '\\LogListener_' . ucfirst(strtolower($name));
         return new $classname();
     }
     /**

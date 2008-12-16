@@ -74,7 +74,7 @@ class Language
      */
     public static function setLanguage($lang)
     {
-        $classname = __NAMESPACE__ . '::Language_' . ucfirst($lang);
+        $classname = __NAMESPACE__ . '\\Language_' . ucfirst($lang);
         self::$instance = new $classname();
     }
     /**

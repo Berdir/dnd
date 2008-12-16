@@ -39,7 +39,7 @@
  * @see       References to other sections (if any)...
  */
 
-namespace DnDEngine::Constants;
+namespace DnDEngine\Constants;
 /**
  * PHP Template.
  */

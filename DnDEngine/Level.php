@@ -40,7 +40,7 @@
  */
 
 namespace DnDEngine;
-use DnDEngine::interfaces::iFeat;
+use DnDEngine\interfaces\iFeat;
 /**
  * Short description for class
  *

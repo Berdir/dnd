@@ -39,7 +39,7 @@
  * @see       References to other sections (if any)...
  */
 
-namespace DnDEngine::interfaces;
+namespace DnDEngine\interfaces;
 /**
  * PHP Template.
  */

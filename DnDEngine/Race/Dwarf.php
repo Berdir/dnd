@@ -39,9 +39,9 @@
  * @see       References to other sections (if any)...
  */
 
-namespace DnDEngine::Race;
-use DnDEngine::interfaces::iRace;
-use DnDEngine::Constants;
+namespace DnDEngine\Race;
+use DnDEngine\interfaces\iRace;
+use DnDEngine\Constants;
 /**
  * PHP Template.
  */
@@ -89,15 +89,15 @@ class Dwarf extends Base implements iRace
      * @access protected
      */
     protected $abilities = array(
-        Constants::Abilities::CON => 2,
-        Constants::Abilities::WIS => 2
+        Constants\Abilities::CON => 2,
+        Constants\Abilities::WIS => 2
     );
     /**
      * Description for protected
      * @var    unknown
      * @access protected
      */
-    protected $size = Constants::Common::SIZE_MEDIUM;
+    protected $size = Constants\Common::SIZE_MEDIUM;
     /**
      * Description for protected
      * @var    integer
@@ -109,15 +109,15 @@ class Dwarf extends Base implements iRace
      * @var    unknown
      * @access protected
      */
-    protected $vision = Constants::Common::VISION_LOWLIGHT;
+    protected $vision = Constants\Common::VISION_LOWLIGHT;
     /**
      * Description for protected
      * @var    array
      * @access protected
      */
     protected $languages = array(
-        Constants::Languages::COMMON,
-        Constants::Languages::DWARVEN
+        Constants\Languages::COMMON,
+        Constants\Languages::DWARVEN
     );
     /**
      * Description for protected
@@ -125,8 +125,8 @@ class Dwarf extends Base implements iRace
      * @access protected
      */
     protected $skillBonuses = array(
-        Constants::Skills::DUNGEONEERING => 2,
-        Constants::Skills::ENDURANCE => 2
+        Constants\Skills::DUNGEONEERING => 2,
+        Constants\Skills::ENDURANCE => 2
     );
     /**
      * Description for protected

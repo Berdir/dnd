@@ -39,8 +39,8 @@
  * @see       References to other sections (if any)...
  */
 
-namespace DnDEngine::interfaces;
-use DnDEngine::Character as C;
+namespace DnDEngine\interfaces;
+use DnDEngine\Character as C;
 /**
  * PHP Template.
  */

@@ -40,8 +40,8 @@
  */
 
 namespace DnDEngine;
-use DnDEngine::Constants;
-use DnDEngine::interfaces::iFeat;
+use DnDEngine\Constants;
+use DnDEngine\interfaces\iFeat;
 /**
  * PHP Template.
  */
@@ -130,7 +130,7 @@ class Character
      * @var    unknown
      * @access protected
      */
-    protected $vision = Constants::Common::VISION_NORMAL;
+    protected $vision = Constants\Common::VISION_NORMAL;
     /**
      * Description for protected
      * @var    array

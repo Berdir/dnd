@@ -56,7 +56,7 @@ class AbilityGenerator
      */
     public static function factory($type)
     {
-        $class = __NAMESPACE__ . '::GeneratorHelper_' . ucfirst(strtolower($type));
+        $class = __NAMESPACE__ . '\\GeneratorHelper_' . ucfirst(strtolower($type));
         return new $class();
     }
 }
