@@ -1,7 +1,7 @@
 <?php
 namespace DnDEngine;
 /**
- * PHP Template.
+ * PHP Template. Just a test.
  */
 function autoload($classname)
 {
