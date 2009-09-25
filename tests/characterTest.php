@@ -69,7 +69,7 @@ $standardArray->assignAbilities(array(
     Constants\Abilities::DEX => 13,
     Constants\Abilities::WIS => 12,
     Constants\Abilities::CHA => 11,
-    Constants\Abilities::INT => 10
+    Constants\Abilities::INT => 10,
 ));
 $berdir->setAbilityScore($standardArray);
 $berdir->build();
