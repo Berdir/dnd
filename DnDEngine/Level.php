@@ -198,7 +198,7 @@ class Level
             throw new Exception_NotAviableAtThisLevel($feat);
         }
         if (!$feat->arePrerequisitesMet($this->char)) {
-            throw new Exception_PrerequitesNotMet($feat->getPrerequisites() , $char);
+            throw new Exception\PrerequisitesNotMet($feat->getPrerequisites() , $this->char);
         }
         $this->gain[self::FEAT]--;
         if ($this->gain[self::FEAT] == 0) {

@@ -534,7 +534,7 @@ class Character
             $feat->getName()
         ));
         if ($feat->isActive()) {
-            if (!isset($this->activeFeats[$feat->getName() ])) {
+            if (!isset($this->activeFeats[$feat->getName()])) {
                 $this->activeFeats[$feat->getName() ] = $feat;
             }
         } else {

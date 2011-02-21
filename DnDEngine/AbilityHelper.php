@@ -43,7 +43,7 @@ namespace DnDEngine;
 /**
  * PHP Template.
  */
-class AbilityGenerator
+class AbilityHelper
 {
     /**
      * Short description for function
@@ -54,10 +54,21 @@ class AbilityGenerator
      * @return object  Return description (if any) ...
      * @access public
      */
-    public static function factory($type)
+    public static function factoryGenerator($type)
     {
-        $class = __NAMESPACE__ . '\\GeneratorHelper_' . ucfirst(strtolower($type));
+        $class = __NAMESPACE__ . '\\GeneratorHelper_' . ucfirst($type);
         return new $class();
+    }
+
+    public static function getAbilities() {
+       return array(
+          Constants\Abilities::STR,
+          Constants\Abilities::CON,
+          Constants\Abilities::DEX,
+          Constants\Abilities::WIS,
+          Constants\Abilities::INT,
+          Constants\Abilities::CHA,
+       );
     }
 }
 ?>

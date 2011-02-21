@@ -77,6 +77,9 @@ class Game
      * @static
      */
     protected static $characters = array();
+
+    protected static $dice = NULL;
+
     /**
      * Short description for function
      *
@@ -109,6 +112,18 @@ class Game
     {
         $char = new Character($charname);
         return self::$characters[$charname] = $char;
+    }
+
+    public static function setDice(interfaces\iDice $dice) {
+      self::$dice = $dice;
+    }
+
+    /**
+     *
+     * @return interfaces\iDice
+     */
+    public static function getDice() {
+      return self::$dice;
     }
 }
 ?>

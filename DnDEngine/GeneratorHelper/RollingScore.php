@@ -4,7 +4,7 @@
  *
  * Long description (if any) ...
  *
- * PHP version 3
+ * PHP version 5
  *
  * All rights reserved.
  * Redistribution and use in source and binary forms, with or without modification,
@@ -30,58 +30,74 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * @category  DnDEngine
- * @package   Language
+ * @package   GeneratorHelper_StandardArray
  * @author    Sascha Grossenbacher <saschagros@gmail.com>
  * @copyright 2008 Sascha Grossenbacher
  * @license   http://www.opensource.org/licenses/bsd-license.php The BSD License
  * @version   SVN: $Id:$
- * @link      http://pear.php.net/package/Language
+ * @link      http://pear.php.net/package/GeneratorHelper_StandardArray
  * @see       References to other sections (if any)...
  */
+
 namespace DnDEngine;
-use DnDEngine\Race;
-use DnDEngine\Classes;
 use DnDEngine\Constants;
-use DnDEngine\Feats;
-
-date_default_timezone_set('Europe/Zurich');
-
 /**
- * Description for include
+ * Short description for class
+ *
+ * Long description (if any) ...
+ *
+ * @category  DnDEngine
+ * @package   GeneratorHelper_StandardArray
+ * @author    Sascha Grossenbacher <saschagros@gmail.com>
+ * @copyright 2008 Sascha Grossenbacher
+ * @license   http://www.opensource.org/licenses/bsd-license.php The BSD License
+ * @version   Release: @package_version@
+ * @link      http://pear.php.net/package/GeneratorHelper_StandardArray
+ * @see       References to other sections (if any)...
  */
-
-include '../init.php';
-Language::setLanguage('German');
-Logger::addListener('StdOut');
-Game::setName('Test');
-$berdir = Game::addCharacter('Berdir');
-$berdir->setRace(new Race\Dwarf());
-$fighter = $berdir->setClass(new Classes\Fighter());
-$fighter->chooseTrainedSkill(array(
-    Constants\Skills::ATHLETHICS,
-    Constants\Skills::ENDURANCE,
-    Constants\Skills::STREETWISE
-));
-$standardArray = AbilityHelper::factoryGenerator('StandardArray');
-$standardArray->assignAbilities(array(
-    Constants\Abilities::STR => 16,
-    Constants\Abilities::CON => 14,
-    Constants\Abilities::DEX => 13,
-    Constants\Abilities::WIS => 12,
-    Constants\Abilities::CHA => 11,
-    Constants\Abilities::INT => 10,
-));
-$berdir->setAbilityScore($standardArray);
-// $rollScore = AbilityHelper::factoryGenerator('RollingScore');
-// $rollScore->rollAbilities();
-// $berdir->setAbilityScore($rollScore);
-$berdir->build();
-
-$level = new Level($berdir);
-$level->chooseFeat(new Feats\Powerattack());
-$level->finish();
-$berdir->activateFeat(Feats\Powerattack::Name);
-$berdir->deactivateFeat(Feats\Powerattack::Name);
-Logger::debug($berdir->dump());
-
+class GeneratorHelper_RollingScore
+{
+    /**
+     * Description for protected
+     * @var    unknown
+     * @access protected
+     */
+    protected $abilities;
+    /**
+     * Short description for function
+     *
+     * Long description (if any) ...
+     *
+     * @param  array                        $abilities Parameter description (if any) ...
+     * @return void
+     * @access public
+     */
+    public function rollAbilities()
+    {
+        $dice = Game::getDice();
+        $dice->setSides(6);
+        $dice->setRepeat(4);
+        $dice->setKeep(3);
+        foreach (AbilityHelper::getAbilities() as $ability) {
+          $this->abilities[$ability] = $dice->rollandKeepSettings();
+        }
+        $dice->reset();
+    }
+    /**
+     * Short description for function
+     *
+     * Long description (if any) ...
+     *
+     * @return unknown                   Return description (if any) ...
+     * @access public
+     * @throws Exception_AbilitiesNotSet Exception description (if any) ...
+     */
+    function getAbilities()
+    {
+        if (count($this->abilities) !== 6) {
+            throw new Exception_AbilitiesNotSet();
+        }
+        return $this->abilities;
+    }
+}
 ?>

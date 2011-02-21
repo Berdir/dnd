@@ -100,7 +100,7 @@ class Powerattack extends Base implements iFeat
      */
     public function getPrerequisites()
     {
-        return Language::singleton()->t('15 Strength');
+        return L::singleton()->t('15 Strength');
     }
     /**
      * Short description for function
