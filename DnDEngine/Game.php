@@ -123,7 +123,20 @@ class Game
      * @return interfaces\iDice
      */
     public static function getDice() {
+      if (is_null(self::$dice)) {
+        self::$dice = new Dice\Dice();
+      }
       return self::$dice;
     }
+
+    public static function startEncounter() {
+      $encounter = new Encounter();
+      foreach (self::$characters as $character) {
+        $encounter->addBeing($character);
+      }
+      return $encounter;
+    }
+
+
 }
 ?>

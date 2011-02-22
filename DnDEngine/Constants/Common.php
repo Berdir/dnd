@@ -137,5 +137,15 @@ class Common
      * Description for const
      */
     const WEAPON_TWOHAND = 'Two-Hand weapon';
+
+    const ALIGNMENT_GOOD = 'Good';
+
+    const ALIGNMENT_LAWFUL = 'Lawful Good';
+
+    const ALIGNMENT_EVIL = 'Evil';
+
+    const ALIGNMENT_CHAOTIC = 'Chaotic Evil';
+
+    const ALIGNMENT_NONE = 'Unaligned';
 }
 ?>

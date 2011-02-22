@@ -73,5 +73,7 @@ class Skills
      * Description for const
      */
     const STREETWISE = 'Streetwise';
+
+    const PERCEPTION = 'Perception';
 }
 ?>

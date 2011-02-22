@@ -45,7 +45,7 @@ use DnDEngine\interfaces\iFeat;
 /**
  * PHP Template.
  */
-class Character
+class Character implements interfaces\iBeing
 {
     /**
      * Description for protected
@@ -106,13 +106,13 @@ class Character
      * @var    unknown
      * @access protected
      */
-    protected $alignment;
+    protected $alignment = Constants\Common::ALIGNMENT_NONE;
     /**
      * Description for protected
      * @var    unknown
      * @access protected
      */
-    protected $iniative;
+    protected $initiative;
     /**
      * Description for protected
      * @var    unknown
@@ -172,7 +172,7 @@ class Character
      * @var    integer
      * @access protected
      */
-    protected $actionPoints = 0;
+    protected $actionPoints = 1;
     /**
      * Description for protected
      * @var    integer
@@ -793,6 +793,50 @@ class Character
         }
         return new Equipment_None();
     }
+
+
+    public function rollInitiative() {
+      $this->initiative = $this->checkAbility(Constants\Abilities::DEX);
+      Logger::debug('Character %s rolls initiative of %s.', array(
+            $this->getName(),
+            DisplayHelper::displayInt($this->initiative),
+        ));
+    }
+
+    public function getInitiative() {
+      return $this->getInitiative();
+    }
+
+    public function checkAbility($ability) {
+      $modifier = floor($this->getLevel() / 2) + $this->getAbilityModifier($ability);
+
+      $dice = Game::getDice();
+      return (int)$dice->roll(20, 1, $modifier);
+    }
+
+    public function checkSkill($skill, $take10 = FALSE) {
+      // @todo Improve according to page 178 in Players Handbook.
+      $modifier = floor($this->getLevel() / 2) + $this->getSkill($skill);
+      if ($take10) {
+        return $modifier + 10;
+      }
+      else {
+        $dice = Game::getDice();
+        return $dice->roll(20, 1, $modifier);
+      }
+    }
+
+    public function getAbilityModifier($ability) {
+      return (int)floor(($this->getAbility($ability) - 10) / 2);
+    }
+
+    public function getSkill($skill) {
+      if (isset($this->skills[$skill])) {
+        return $this->skills[$skill];
+      }
+      return 0;
+    }
+
     /**
      * Short description for function
      *

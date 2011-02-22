@@ -6,6 +6,7 @@
 
 namespace DnDEngine\Dice;
 use DnDEngine\interfaces\iDice;
+use DnDEngine\Logger;
 
 class Dice implements iDice {
   private $sides = 20;
@@ -45,7 +46,8 @@ class Dice implements iDice {
 
     $results = array();
     for ($i = 0; $i < $this->repeat; $i++) {
-      $results[] = rand(1, $this->sides);
+      $results[] = $roll = rand(1, $this->sides);
+      Logger::debug('Rolled %d', array($roll));
     }
 
     if (!is_null($this->keep)) {
@@ -61,7 +63,9 @@ class Dice implements iDice {
         array_shift($results);
       }
     }
-    return array_sum($results) + $this->modifier;
+    $result = array_sum($results) + $this->modifier;
+    Logger::info('Roll result for %dd%d + %d: %d', array($this->repeat, $this->sides, $this->modifier, $result));
+    return $result;
   }
 
   public function setSides($sides) {
